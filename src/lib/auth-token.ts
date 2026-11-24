@@ -1,6 +1,4 @@
 import { auth } from "@/auth";
-import { getToken } from "next-auth/jwt";
-import { headers } from "next/headers";
 
 export interface AuthenticatedUser {
   id: string;
@@ -10,43 +8,33 @@ export interface AuthenticatedUser {
   accessToken: string;
 }
 
-/**
- * Retrieves the current authenticated user's token and ID from NextAuth.
- * Works uniformly inside Next.js Server Components, Server Actions, and Route Handlers.
- */
 export async function getAuthToken(): Promise<{
   accessToken: string;
   userId: string;
 } | null> {
   try {
-    const jwtObject = await getToken({
-      req: {
-        headers: await headers(),
-      },
-      secret: process.env.AUTH_SECRET,
-    });
+    const session = await auth();
 
-    const accessToken = jwtObject?.accessToken;
-    if (!accessToken) {
+    if (!session?.accessToken) {
       return null;
     }
 
-    const userId = (jwtObject.id as string) || (jwtObject.sub as string) || "";
-    return { accessToken, userId };
-  } catch {
+    return {
+      accessToken: session.accessToken,
+      userId: session.user?.id || "",
+    };
+  } catch (error) {
+    console.error("Error retrieving authentication session:", error);
     return null;
   }
 }
 
-/**
- * Prepares the standard authorization headers required by Route Misr E-Commerce API.
- * The Route backend requires `token: <JWT>` in the headers.
- */
 export async function getAuthHeaders(): Promise<{
   token: string;
   "Content-Type": string;
 } | null> {
   const authData = await getAuthToken();
+
   if (!authData?.accessToken) {
     return null;
   }
