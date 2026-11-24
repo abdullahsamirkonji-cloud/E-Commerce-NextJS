@@ -21,7 +21,7 @@ export default async function HomePage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Hero Banner Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-500 via-green-600 to-emerald-700 text-white">
+      <section className="relative overflow-hidden bg-linear-to-br from-green-500 via-green-600 to-emerald-700 text-white">
         <div className="container mx-auto px-4 py-16 sm:py-24 relative z-10 flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-white mb-4">
             <Sparkles size={14} /> New Season Arrivals • Up to 40% Off
@@ -32,7 +32,8 @@ export default async function HomePage() {
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-green-100 max-w-xl">
-            Explore authentic top-rated brands across electronics, fashion, and lifestyle with fast doorstep delivery across Egypt.
+            Explore authentic top-rated brands across electronics, fashion, and
+            lifestyle with fast doorstep delivery across Egypt.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
@@ -66,8 +67,12 @@ export default async function HomePage() {
               <Truck size={22} />
             </div>
             <div>
-              <p className="font-bold text-xs sm:text-sm text-gray-900">Fast Shipping</p>
-              <p className="text-[11px] text-gray-500">Doorstep delivery across Egypt</p>
+              <p className="font-bold text-xs sm:text-sm text-gray-900">
+                Fast Shipping
+              </p>
+              <p className="text-[11px] text-gray-500">
+                Doorstep delivery across Egypt
+              </p>
             </div>
           </div>
 
@@ -76,8 +81,12 @@ export default async function HomePage() {
               <RotateCcw size={22} />
             </div>
             <div>
-              <p className="font-bold text-xs sm:text-sm text-gray-900">Easy Returns</p>
-              <p className="text-[11px] text-gray-500">14-day hassle-free policy</p>
+              <p className="font-bold text-xs sm:text-sm text-gray-900">
+                Easy Returns
+              </p>
+              <p className="text-[11px] text-gray-500">
+                14-day hassle-free policy
+              </p>
             </div>
           </div>
 
@@ -86,8 +95,12 @@ export default async function HomePage() {
               <ShieldCheck size={22} />
             </div>
             <div>
-              <p className="font-bold text-xs sm:text-sm text-gray-900">100% Genuine</p>
-              <p className="text-[11px] text-gray-500">Official authentic products</p>
+              <p className="font-bold text-xs sm:text-sm text-gray-900">
+                100% Genuine
+              </p>
+              <p className="text-[11px] text-gray-500">
+                Official authentic products
+              </p>
             </div>
           </div>
 
@@ -96,8 +109,12 @@ export default async function HomePage() {
               <Headphones size={22} />
             </div>
             <div>
-              <p className="font-bold text-xs sm:text-sm text-gray-900">24/7 Support</p>
-              <p className="text-[11px] text-gray-500">Dedicated assistance anytime</p>
+              <p className="font-bold text-xs sm:text-sm text-gray-900">
+                24/7 Support
+              </p>
+              <p className="text-[11px] text-gray-500">
+                Dedicated assistance anytime
+              </p>
             </div>
           </div>
         </div>
@@ -121,7 +138,10 @@ export default async function HomePage() {
               className="group flex items-center gap-1.5 text-xs sm:text-sm font-bold text-green-600 hover:text-green-700 transition-colors"
             >
               <span>All Categories</span>
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
           </div>
 
@@ -167,7 +187,10 @@ export default async function HomePage() {
             className="group flex items-center gap-1.5 text-xs sm:text-sm font-bold text-green-600 hover:text-green-700 transition-colors"
           >
             <span>View All</span>
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            <ArrowRight
+              size={16}
+              className="transition-transform group-hover:translate-x-1"
+            />
           </Link>
         </div>
 

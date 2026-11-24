@@ -15,6 +15,13 @@ export async function getAuthToken(): Promise<{
   try {
     const session = await auth();
 
+    console.log("[AUTH DEBUG]", {
+      hasSession: !!session,
+      hasAccessToken: !!session?.accessToken,
+      hasUser: !!session?.user,
+      userId: session?.user?.id || null,
+    });
+
     if (!session?.accessToken) {
       return null;
     }
@@ -24,7 +31,7 @@ export async function getAuthToken(): Promise<{
       userId: session.user?.id || "",
     };
   } catch (error) {
-    console.error("Error retrieving authentication session:", error);
+    console.error("[AUTH DEBUG ERROR]", error);
     return null;
   }
 }
