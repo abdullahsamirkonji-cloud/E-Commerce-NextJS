@@ -30,14 +30,6 @@ declare module "next-auth" {
   }
 }
 
-declare module "next-auth/jwt" {
-  interface JWT {
-    id?: string;
-    accessToken: string;
-    role?: string;
-  }
-}
-
 class InvalidLoginError extends CredentialsSignin {
   code = "Invalid email or password";
   status = "fail";
@@ -108,7 +100,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.accessToken = token.accessToken;
+      session.accessToken = token.accessToken as string;
       if (session.user) {
         if (token.id) session.user.id = token.id as string;
         if (token.role) session.user.role = token.role as string;
